@@ -1,7 +1,8 @@
-require 'color.rb'
+require './color.rb'
 
-COMPILER = "/software-local/insieme-libs/llvm-latest/bin/clang++"
+COMPILER = "g++"
 CPPFLAGS = "-std=c++11 -stdlib=libc++ -Wall -isystem /software-local/insieme-libs/libc++-svn/include/c++/v1/ -L /software-local/insieme-libs/libc++-svn/lib/"
+CPPFLAGS = "-std=c++11 -Wall "
 
 debug = ARGV.include?("--dbg")
 parallel = ARGV.include?("--par")

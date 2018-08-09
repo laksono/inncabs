@@ -532,7 +532,7 @@ void handleCell(const std::launch l, Cell* a) {
 	/*std::cout << "unlocked on " << a << ", " << b << " locks: " <<  *(int*)&a->getLock() << " / " <<  *(int*)&b->getLock() << std::endl;*/  
 
 	std::vector<std::future<void>> futures;
-	for(Cell* c : newTasks) futures.push_back(inncabs::async(l, &handleCell, l, c));
+	for(Cell* c : newTasks) futures.push_back(async(l, &handleCell, l, c));
 	for(auto& f : futures) f.wait();
 }
 
@@ -547,7 +547,7 @@ void compute(const std::launch l, Cell* net) {
 	for(const Cell* cur : cells) {
 		const Port& port = cur->getPrinciplePort();
 		if(cur < port.cell && isCut(cur, port.cell)) {
-			cuts.push_back(inncabs::async(l, handleCell, l, const_cast<Cell*>(cur)));
+			cuts.push_back(async(l, handleCell, l, const_cast<Cell*>(cur)));
 		}
 	}
 
