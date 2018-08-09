@@ -2,7 +2,7 @@ require './color.rb'
 
 COMPILER = "g++"
 CPPFLAGS = "-std=c++11 -stdlib=libc++ -Wall -isystem /software-local/insieme-libs/libc++-svn/include/c++/v1/ -L /software-local/insieme-libs/libc++-svn/lib/"
-CPPFLAGS = "-std=c++11 -Wall "
+CPPFLAGS = "-std=c++11 -g -Wall -lpthread"
 
 debug = ARGV.include?("--dbg")
 parallel = ARGV.include?("--par")
